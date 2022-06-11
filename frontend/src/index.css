@@ -3,8 +3,12 @@
 
 :root {
   --white-color: #ffffff;
-  --primary-color: #251d58;
   --normal-gray: #f6f6f6;
+  --dark-gray: #606268;
+  --primary-color: #251d58;
+  --secondary-color: #1f1632;
+  --green-normal-color: #16322e;
+  --transition: 0.3s;
 }
 
 /* Custom Styles */
@@ -15,6 +19,19 @@ body {
 img {
   max-height: 100%;
   max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--secondary-color);
+}
+
+p {
+  color: var(--dark-gray);
 }
 
 /* Custom Class Styles */

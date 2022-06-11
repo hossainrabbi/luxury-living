@@ -1,0 +1,21 @@
+.service {
+  transition: box-shadow var(--transition);
+}
+
+.service:hover {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.service__images img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.service__title {
+  color: var(--green-normal-color);
+}
+
+.service__price {
+  font-weight: 700;
+}

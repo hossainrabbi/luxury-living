@@ -1,0 +1,7 @@
+.title h6 {
+  color: var(--primary-color);
+}
+
+.title h4 {
+  font-weight: 600;
+}

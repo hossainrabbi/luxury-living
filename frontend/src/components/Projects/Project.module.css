@@ -1,0 +1,14 @@
+.project__images {
+  overflow: hidden;
+}
+
+.project__images img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+
+.project__images:hover img {
+  transform: scale(1.1);
+}
