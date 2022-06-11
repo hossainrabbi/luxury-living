@@ -1,13 +1,23 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 :root {
   --white-color: #ffffff;
   --primary-color: #251d58;
+  --normal-gray: #f6f6f6;
+}
+
+/* Custom Styles */
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
 img {
   max-height: 100%;
+  max-width: 100%;
 }
 
-/* Custom CSS */
+/* Custom Class Styles */
 .btn {
   color: var(--white-color) !important;
   background-color: var(--primary-color);

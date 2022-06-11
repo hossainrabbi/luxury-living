@@ -11,7 +11,7 @@ export default function NavbarNav() {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className={styles.navbar__nav} expand="lg">
       <Container>
         <Link to="/" className={styles.nav__logo} href="#home">
           <img src={Logo} alt="luxury-living-logo" />

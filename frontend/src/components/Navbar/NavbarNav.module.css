@@ -1,3 +1,8 @@
+.navbar__nav {
+  height: 80px;
+  background-color: var(--normal-gray);
+}
+
 .nav__logo {
   height: 55px;
 }
