@@ -96,3 +96,70 @@ export const projectData = [
     ],
   },
 ];
+
+// Fake Testimonial user reviews
+export const reviews = [
+  {
+    _id: 1,
+    name: 'Nash Patrik',
+    title: 'CEO, Manpol',
+    review: 4,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
+    image: '/images/user-1.png',
+  },
+  {
+    _id: 2,
+    name: 'Miriam Barron',
+    title: 'CEO, Manpol',
+    review: 5,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
+    image: '/images/user-2.png',
+  },
+  {
+    _id: 3,
+    name: 'Bria Malone',
+    title: 'CEO, Manpol',
+    review: 3,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
+    image: '/images/user-3.png',
+  },
+  {
+    _id: 4,
+    name: 'Miriam Barron',
+    title: 'CEO, Manpol',
+    review: 5,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
+    image: '/images/user-2.png',
+  },
+  {
+    _id: 5,
+    name: 'Bria Malone',
+    title: 'CEO, Manpol',
+    review: 3,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
+    image: '/images/user-3.png',
+  },
+  {
+    _id: 6,
+    name: 'Nash Patrik',
+    title: 'CEO, Manpol',
+    review: 4,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
+    image: '/images/user-1.png',
+  },
+  {
+    _id: 7,
+    name: 'Miriam Barron',
+    title: 'CEO, Manpol',
+    review: 5,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
+    image: '/images/user-2.png',
+  },
+];
