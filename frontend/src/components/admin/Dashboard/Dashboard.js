@@ -2,5 +2,5 @@ import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 
 export default function Dashboard() {
-  return <Sidebar />;
+  return <Sidebar>Dashboard</Sidebar>;
 }

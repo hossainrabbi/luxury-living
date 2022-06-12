@@ -8,7 +8,7 @@
 }
 
 .sidebar__icon aside {
-  width: 70px;
+  width: 59px;
   height: 100vh;
   background-color: var(--normal-gray);
   flex: none;
@@ -47,6 +47,7 @@
   cursor: pointer;
   font-size: 30px;
   position: absolute;
-  top: 0;
+  top: 5px;
   right: -40px;
+  z-index: 2;
 }

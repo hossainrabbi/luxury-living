@@ -186,7 +186,7 @@ export const sidebarData = [
   {
     id: 2,
     title: 'Add Services',
-    path: '/add-services',
+    path: '/admin/add-services',
     icon: TiDocumentAdd,
   },
   {

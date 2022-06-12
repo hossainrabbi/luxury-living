@@ -3,9 +3,10 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { Link, NavLink } from 'react-router-dom';
 import { sidebarData } from '../../../data';
 import Logo from '../../../images/luxury-living-logo.png';
+import AdminNavbar from '../AdminNavbar/AdminNavbar';
 import styles from './Sidebar.module.css';
 
-export default function Sidebar() {
+export default function Sidebar({ children }) {
   const [openSidebar, setOpenSidebar] = useState(false);
 
   const activeStyle = {
@@ -42,25 +43,9 @@ export default function Sidebar() {
           <AiOutlineMenu />
         </div>
       </aside>
-      <div className="container-fluid px-4">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum velit
-        nihil sed soluta commodi delectus ullam cupiditate ipsa consequatur
-        asperiores, reprehenderit quo quasi dolorum rerum! Doloremque
-        reprehenderit vitae assumenda facere! Lorem ipsum dolor, sit amet
-        consectetur adipisicing elit. Harum velit nihil sed soluta commodi
-        delectus ullam cupiditate ipsa consequatur asperiores, reprehenderit quo
-        quasi dolorum rerum! Doloremque reprehenderit vitae assumenda facere!
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum velit
-        nihil sed soluta commodi delectus ullam cupiditate ipsa consequatur
-        asperiores, reprehenderit quo quasi dolorum rerum! Doloremque
-        reprehenderit vitae assumenda facere! Lorem ipsum dolor, sit amet
-        consectetur adipisicing elit. Harum velit nihil sed soluta commodi
-        delectus ullam cupiditate ipsa consequatur asperiores, reprehenderit quo
-        quasi dolorum rerum! Doloremque reprehenderit vitae assumenda facere!
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum velit
-        nihil sed soluta commodi delectus ullam cupiditate ipsa consequatur
-        asperiores, reprehenderit quo quasi dolorum rerum! Doloremque
-        reprehenderit vitae assumenda facere!
+      <div className="w-100">
+        <AdminNavbar />
+        {children}
       </div>
     </div>
   );
