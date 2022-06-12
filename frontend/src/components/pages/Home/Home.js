@@ -3,7 +3,7 @@ import Hero from '../../Hero/Hero';
 import NavbarNav from '../../Navbar/NavbarNav';
 import Projects from '../../Projects/Projects';
 import Services from '../../Services/Services';
-import Testimonial from '../../Testimonial/Testimonial';
+import Testimonials from '../../Testimonials/Testimonials';
 import styles from './Home.module.css';
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
       </header>
       <Projects />
       <Services />
-      <Testimonial />
+      <Testimonials />
     </>
   );
 }

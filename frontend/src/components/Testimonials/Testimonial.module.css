@@ -1,0 +1,17 @@
+.testimonial {
+  background-color: var(--white-color);
+  box-shadow: 1px 1px 30px #dddddd;
+}
+
+.user__details {
+  display: flex;
+  align-items: center;
+}
+
+.user__image {
+  height: 50px;
+}
+
+.testimonial > small {
+  letter-spacing: 0.5px;
+}

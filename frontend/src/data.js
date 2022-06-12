@@ -98,7 +98,7 @@ export const projectData = [
 ];
 
 // Fake Testimonial user reviews
-export const reviews = [
+export const reviewsData = [
   {
     _id: 1,
     name: 'Nash Patrik',
