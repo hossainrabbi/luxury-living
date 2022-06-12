@@ -4,7 +4,9 @@
 :root {
   --white-color: #ffffff;
   --normal-gray: #f6f6f6;
+  --gray-color: #dddddd;
   --dark-gray: #606268;
+  --dark-color: #444444;
   --primary-color: #251d58;
   --secondary-color: #1f1632;
   --green-normal-color: #16322e;
@@ -35,7 +37,7 @@ p {
 }
 
 /* Custom Class Styles */
-.btn {
+.btn__color {
   color: var(--white-color) !important;
   background-color: var(--primary-color);
 }

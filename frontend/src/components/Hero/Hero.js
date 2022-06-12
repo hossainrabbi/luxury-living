@@ -14,7 +14,7 @@ export default function Hero() {
               Online Easte Agency, the mordern way to sell your own home, You
               can use Griffin Residential to market your property
             </p>
-            <button className="btn px-4">Booking</button>
+            <button className="btn btn__color px-4">Booking</button>
           </div>
         </Col>
         <Col md={6}>

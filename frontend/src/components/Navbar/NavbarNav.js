@@ -32,7 +32,7 @@ export default function NavbarNav() {
             {navSignupLogin.map((item) => (
               <NavLink
                 to={item.path}
-                className="nav-link px-3 mx-2 mx-2 btn"
+                className="nav-link px-3 mx-2 mx-2 btn btn__color"
                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
                 key={item.id}
               >

@@ -1,0 +1,52 @@
+.sidebar aside {
+  width: 300px;
+  height: 100vh;
+  background-color: var(--normal-gray);
+  flex: none;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.sidebar__icon aside {
+  width: 70px;
+  height: 100vh;
+  background-color: var(--normal-gray);
+  flex: none;
+  position: relative;
+  margin: 0 auto;
+  transition: all 0.3s;
+}
+
+.logo__img {
+  height: 70px !important;
+  text-align: center;
+}
+
+.nav__link {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  transition: all var(--transition);
+  background-color: var(--gray-color) !important;
+}
+
+.nav__link:hover {
+  background-color: var(--primary-color) !important;
+}
+
+.nav__link span {
+  margin-top: 1px;
+  color: var(--dark-color) !important;
+}
+
+.nav__link:hover span {
+  color: var(--white-color) !important;
+}
+
+.toggle__bar {
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  right: -40px;
+}

@@ -1,3 +1,9 @@
+import { AiOutlineUnorderedList } from 'react-icons/ai';
+import { FiUsers } from 'react-icons/fi';
+import { GoSettings } from 'react-icons/go';
+import { MdDashboard } from 'react-icons/md';
+import { TiDocumentAdd } from 'react-icons/ti';
+
 // Navbar Nab Item
 export const navItem = [
   {
@@ -19,6 +25,11 @@ export const navItem = [
     id: 4,
     title: 'Contact',
     path: '/contact',
+  },
+  {
+    id: 4,
+    title: 'Admin',
+    path: '/admin/dashboard',
   },
 ];
 
@@ -161,5 +172,39 @@ export const reviewsData = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ',
     image: '/images/user-2.png',
+  },
+];
+
+// Admin Dashboard Sidebar
+export const sidebarData = [
+  {
+    id: 1,
+    title: 'Dashboard',
+    path: '/admin/dashboard',
+    icon: MdDashboard,
+  },
+  {
+    id: 2,
+    title: 'Add Services',
+    path: '/add-services',
+    icon: TiDocumentAdd,
+  },
+  {
+    id: 3,
+    title: 'Order List',
+    path: '/admin/order-list',
+    icon: AiOutlineUnorderedList,
+  },
+  {
+    id: 4,
+    title: 'User List',
+    path: '/user-list',
+    icon: FiUsers,
+  },
+  {
+    id: 4,
+    title: 'Manage Services',
+    path: '/admin/manage-services',
+    icon: GoSettings,
   },
 ];

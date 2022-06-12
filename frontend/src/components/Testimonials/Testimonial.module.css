@@ -8,6 +8,10 @@
   align-items: center;
 }
 
+.user__details small {
+  font-weight: 600;
+}
+
 .user__image {
   height: 50px;
 }
