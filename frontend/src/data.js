@@ -202,7 +202,7 @@ export const sidebarData = [
     icon: FiUsers,
   },
   {
-    id: 4,
+    id: 5,
     title: 'Manage Services',
     path: '/admin/manage-services',
     icon: GoSettings,
