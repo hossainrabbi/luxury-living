@@ -29,7 +29,7 @@ export default function AddServices() {
       serviceIcon,
     };
 
-    console.log(serviceDetails);
+    // console.log(serviceDetails);
   };
 
   return (

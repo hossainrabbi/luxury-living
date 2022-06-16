@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { serviceData } from '../../data';
+import { getService } from '../../redux/actions/serviceAction';
 import Title from '../Title/Title';
 import Service from './Service';
 
 export default function Services() {
+  const dispatch = useDispatch();
+  const services = useSelector((store) => store.services);
+
+  useEffect(() => {
+    dispatch(getService());
+  });
+
+  console.log(services);
+
   return (
     <section className="py-5">
       <Container>
