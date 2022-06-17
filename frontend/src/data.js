@@ -27,7 +27,7 @@ export const navItem = [
     path: '/contact',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Admin',
     path: '/admin/dashboard',
   },

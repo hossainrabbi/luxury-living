@@ -13,9 +13,17 @@ const serviceSchema = mongoose.Schema({
     type: String,
     required: [true, 'Service Description is required'],
   },
+  category: {
+    type: String,
+    required: [true, 'Service Category is required'],
+  },
   image: {
     type: String,
     required: [true, 'Service image is required'],
+  },
+  createAt: {
+    type: Date,
+    default: Date.now(),
   },
 });
 

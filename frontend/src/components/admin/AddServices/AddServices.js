@@ -1,59 +1,66 @@
+// import axios from 'axios';
 import React, { useState } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import useImageUpload from '../../../hooks/useImageUpload';
+import { createService } from '../../../redux/actions/serviceAction';
 import Sidebar from '../Sidebar/Sidebar';
 
 export default function AddServices() {
-  const [serviceIcon, setServiceIcon] = useState(null);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const [imageUploadLoading, setImageUploadLoading] = useState(false);
+  const [imageUploadError, setImageUploadError] = useState('');
+  const [uploadImage, setUploadImage] = useState(null);
+  const [posts, setPosts] = useState({
+    name: '',
+    price: '',
+    description: '',
+    category: 'design',
+  });
 
-  const handleImageChange = (e) => {
-    const render = new FileReader();
-    render.onload = () => {
-      if (render.readyState === 2) {
-        setServiceIcon(render.result);
-      }
-    };
+  const { imagePost } = useImageUpload();
+  const dispatch = useDispatch();
+  const serviceCreate = useSelector((state) => state.serviceCreate);
+  const navigate = useNavigate();
 
-    render.readAsDataURL(e.target.files[0]);
+  const handleImageChange = async (e) => {
+    try {
+      setImageUploadLoading(true);
+      const { data } = await imagePost(e);
+      setUploadImage(data.data.display_url);
+      setImageUploadError('');
+      setImageUploadLoading(false);
+    } catch {
+      setImageUploadError('Image Upload Fail!');
+      setImageUploadLoading(false);
+    }
   };
 
-  const onSubmit = (data) => {
-    if (!serviceIcon) return;
-    const serviceDetails = {
-      ...data,
-      serviceIcon,
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createService({ ...posts, image: uploadImage }));
+    console.log(serviceCreate.service?.success);
 
-    // console.log(serviceDetails);
+    if (!serviceCreate.service?.success) {
+      // navigate('/admin/manage-services');
+    }
   };
 
   return (
     <Sidebar>
       <div className="container-fluid mt-4">
-        <Form
-          className="overflow-hidden px-2"
-          onSubmit={handleSubmit(onSubmit)}
-        >
+        <Form className="overflow-hidden px-2" onSubmit={handleSubmit}>
           <Row>
             <Col md={6}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Service Name:</Form.Label>
                 <Form.Control
                   type="text"
-                  {...register('serviceName', { required: true })}
                   placeholder="Enter Service Name"
+                  value={posts.name}
+                  onChange={(e) => setPosts({ ...posts, name: e.target.value })}
                   required
                 />
-                {errors.serviceName && (
-                  <Form.Text className="text-danger">
-                    Service name is required
-                  </Form.Text>
-                )}
               </Form.Group>
             </Col>
 
@@ -62,33 +69,29 @@ export default function AddServices() {
                 <Form.Label>Price:</Form.Label>
                 <Form.Control
                   type="number"
-                  {...register('servicePrice', { required: true })}
                   placeholder="Enter Service Price"
+                  value={posts.price}
+                  onChange={(e) =>
+                    setPosts({ ...posts, price: e.target.value })
+                  }
                   required
                 />
-                {errors.serviceName && (
-                  <Form.Text className="text-danger">
-                    Service price is required
-                  </Form.Text>
-                )}
               </Form.Group>
             </Col>
             <Col md={6}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Choose Category:</Form.Label>
                 <Form.Select
-                  {...register('serviceCategory', { required: true })}
+                  value={posts.category}
+                  onChange={(e) =>
+                    setPosts({ ...posts, category: e.target.value })
+                  }
                   required
                 >
                   <option value="design">Design</option>
                   <option value="home">Home</option>
                   <option value="arranged">Arranged</option>
                 </Form.Select>
-                {errors.serviceCategory && (
-                  <Form.Text className="text-danger">
-                    Service category is required
-                  </Form.Text>
-                )}
               </Form.Group>
             </Col>
 
@@ -97,11 +100,12 @@ export default function AddServices() {
                 <Form.Label>Choose Service icon:</Form.Label>
                 <Form.Control
                   type="file"
-                  name="serviceIcon"
-                  accept="image/*"
-                  required
                   onChange={handleImageChange}
+                  required
                 />
+                {imageUploadError && (
+                  <small className="text-danger">{imageUploadError}</small>
+                )}
               </Form.Group>
             </Col>
 
@@ -109,21 +113,33 @@ export default function AddServices() {
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Service Description:</Form.Label>
                 <Form.Control
-                  {...register('serviceDescription', { required: true })}
                   placeholder="Enter Service Description"
                   as="textarea"
                   rows={3}
+                  value={posts.description}
+                  onChange={(e) =>
+                    setPosts({ ...posts, description: e.target.value })
+                  }
                   required
                 />
-                {errors.serviceDescription && (
-                  <Form.Text className="text-danger">
-                    Service Description is required
-                  </Form.Text>
-                )}
               </Form.Group>
             </Col>
           </Row>
-          <input className="btn btn__color px-4" type="submit" />
+          <input
+            disabled={imageUploadLoading || serviceCreate.loading}
+            className="btn btn__color px-4"
+            type="submit"
+            value={
+              imageUploadLoading || serviceCreate.loading
+                ? 'Loading...'
+                : 'Submit'
+            }
+          />
+          {serviceCreate.error && (
+            <div className="text-center text-danger">
+              {serviceCreate.error.message}
+            </div>
+          )}
         </Form>
       </div>
     </Sidebar>

@@ -10,9 +10,9 @@ const app = express();
 dotenv.config({ path: 'config/.env' });
 
 // Call Middleware
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
 // Import Routes
 app.use('/api/v1', servicesRouter);
