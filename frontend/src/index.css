@@ -41,3 +41,11 @@ p {
   color: var(--white-color) !important;
   background-color: var(--primary-color);
 }
+
+.edit {
+  color: green !important;
+}
+
+.delete {
+  color: red !important;
+}

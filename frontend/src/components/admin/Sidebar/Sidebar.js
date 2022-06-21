@@ -6,7 +6,7 @@ import Logo from '../../../images/luxury-living-logo.png';
 import AdminNavbar from '../AdminNavbar/AdminNavbar';
 import styles from './Sidebar.module.css';
 
-export default function Sidebar({ children }) {
+export default function Sidebar({ children, className, ...rest }) {
   const [openSidebar, setOpenSidebar] = useState(false);
 
   const activeStyle = {
@@ -18,7 +18,8 @@ export default function Sidebar({ children }) {
     <div
       className={`${
         openSidebar ? styles.sidebar : styles.sidebar__icon
-      } d-flex`}
+      } d-flex ${className}`}
+      {...rest}
     >
       <aside className="px-1">
         <Link to="/" className={`${styles.logo__img} d-block py-3`}>
