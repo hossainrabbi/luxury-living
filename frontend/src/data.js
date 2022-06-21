@@ -170,7 +170,7 @@ export const sidebarData = [
   {
     id: 4,
     title: 'User List',
-    path: '/user-list',
+    path: '/admin/user-list',
     icon: FiUsers,
   },
   {

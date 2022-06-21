@@ -10,7 +10,8 @@ export default function Sidebar({ children }) {
   const [openSidebar, setOpenSidebar] = useState(false);
 
   const activeStyle = {
-    color: '#251d58',
+    color: '#ffffff',
+    backgroundColor: '#251d58',
   };
 
   return (

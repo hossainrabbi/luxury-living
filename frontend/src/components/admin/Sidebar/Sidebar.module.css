@@ -26,22 +26,22 @@
   text-align: left;
   display: flex;
   align-items: center;
+  color: var(--dark-color);
   transition: all var(--transition);
-  background-color: var(--gray-color) !important;
+  background-color: var(--gray-color);
 }
 
 .nav__link:hover {
-  background-color: var(--primary-color) !important;
+  color: var(--white-color);
+  background-color: var(--primary-color);
 }
 
 .nav__link span {
   margin-top: 1px;
-  color: var(--dark-color) !important;
 }
 
-.nav__link:hover span {
-  color: var(--white-color) !important;
-}
+/* .nav__link:hover span {
+} */
 
 .toggle__bar {
   cursor: pointer;
