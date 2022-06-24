@@ -16,7 +16,7 @@ export default function ManageService() {
   const { services } = useSelector((store) => store.services);
   useEffect(() => {
     dispatch(getService());
-  }, [dispatch, services]);
+  }, [dispatch]);
 
   const deleteServiceHandler = (id) => {
     dispatch(deleteService(id));

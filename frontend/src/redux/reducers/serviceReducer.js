@@ -8,11 +8,18 @@ import {
   SERVICE_FAIL,
   SERVICE_REQUEST,
   SERVICE_SUCCESS,
+  SERVICE_UPDATE_FAIL,
+  SERVICE_UPDATE_REQUEST,
+  SERVICE_UPDATE_SUCCESS,
+  SINGLE_SERVICE_FAIL,
+  SINGLE_SERVICE_REQUEST,
+  SINGLE_SERVICE_SUCCESS,
 } from '../constants/serviceConstant';
 
 const initialServiceState = {
   loading: false,
   services: [],
+  service: {},
   error: '',
 };
 
@@ -24,7 +31,9 @@ const initialCreateServiceState = {
 
 export const serviceReducer = (state = initialServiceState, action) => {
   switch (action.type) {
+    case SERVICE_UPDATE_REQUEST:
     case SERVICE_DELETE_REQUEST:
+    case SINGLE_SERVICE_REQUEST:
     case SERVICE_REQUEST:
       return {
         ...state,
@@ -37,6 +46,14 @@ export const serviceReducer = (state = initialServiceState, action) => {
         loading: true,
       };
 
+    case SINGLE_SERVICE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        service: action.payload,
+      };
+
+    case SERVICE_UPDATE_SUCCESS:
     case SERVICE_SUCCESS:
       return {
         ...state,
@@ -44,6 +61,8 @@ export const serviceReducer = (state = initialServiceState, action) => {
         services: action.payload,
       };
 
+    case SINGLE_SERVICE_FAIL:
+    case SERVICE_UPDATE_FAIL:
     case SERVICE_DELETE_FAIL:
     case SERVICE_FAIL:
       return {

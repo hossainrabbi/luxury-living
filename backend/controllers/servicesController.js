@@ -52,9 +52,8 @@ exports.deleteService = async (req, res) => {
 };
 
 exports.updateService = async (req, res) => {
-  console.log(req.body);
   try {
-    const service = await Services.findByIdAndUpdate(req.params.id, req.body, {
+    const services = await Services.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
       useFindAndModify: false,
@@ -62,8 +61,21 @@ exports.updateService = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      service,
+      services,
     });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+exports.getSingleService = async (req, res) => {
+  try {
+    const service = await Services.findById(req.params.id);
+
+    res.status(200).json(service);
   } catch (error) {
     res.status(500).json({
       success: false,
