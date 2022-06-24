@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { Link, NavLink } from 'react-router-dom';
 import { sidebarData } from '../../../data';
@@ -47,7 +47,7 @@ export default function Sidebar({ children, className, ...rest }) {
       </aside>
       <div className="w-100">
         <AdminNavbar />
-        {children}
+        <div className="container-fluid mt-3">{children}</div>
       </div>
     </div>
   );

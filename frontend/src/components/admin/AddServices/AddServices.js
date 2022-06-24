@@ -21,14 +21,12 @@ export default function AddServices() {
 
   return (
     <Sidebar>
-      <div className="container-fluid mt-4">
-        <ServiceForm
-          handleSubmit={createHandleSubmit}
-          posts={posts}
-          setPosts={setPosts}
-          update={false}
-        />
-      </div>
+      <ServiceForm
+        handleSubmit={createHandleSubmit}
+        posts={posts}
+        setPosts={setPosts}
+        update={false}
+      />
     </Sidebar>
   );
 }

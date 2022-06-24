@@ -26,56 +26,53 @@ export default function ManageService() {
     navigate(`/admin/manage-services/${id}`);
   };
 
-  console.log(services);
   return (
     <Sidebar>
-      <div className="m-2">
-        {services.length ? (
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Service Picture</th>
-                <th>Service Name</th>
-                <th>Service Price</th>
-                <th>Service Action</th>
+      {services.length ? (
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Service Picture</th>
+              <th>Service Name</th>
+              <th>Service Price</th>
+              <th>Service Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {services.map((service, i) => (
+              <tr key={service._id}>
+                <td>{i + 1}</td>
+                <td>
+                  <img
+                    style={{ height: 30 }}
+                    src={service.image}
+                    alt={service.name}
+                  />
+                </td>
+                <td>{service.name}</td>
+                <td>${service.price}</td>
+                <td>
+                  <span
+                    className="btn edit mx-2 p-0"
+                    onClick={() => updateServiceHandler(service._id)}
+                  >
+                    <BiEdit />
+                  </span>
+                  <span
+                    className="btn delete mx-2 p-0"
+                    onClick={() => deleteServiceHandler(service._id)}
+                  >
+                    <MdDelete />
+                  </span>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {services.map((service, i) => (
-                <tr key={service._id}>
-                  <td>{i + 1}</td>
-                  <td>
-                    <img
-                      style={{ height: 30 }}
-                      src={service.image}
-                      alt={service.name}
-                    />
-                  </td>
-                  <td>{service.name}</td>
-                  <td>${service.price}</td>
-                  <td>
-                    <span
-                      className="btn edit mx-2 p-0"
-                      onClick={() => updateServiceHandler(service._id)}
-                    >
-                      <BiEdit />
-                    </span>
-                    <span
-                      className="btn delete mx-2 p-0"
-                      onClick={() => deleteServiceHandler(service._id)}
-                    >
-                      <MdDelete />
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        ) : (
-          <div>Service Not Found</div>
-        )}
-      </div>
+            ))}
+          </tbody>
+        </Table>
+      ) : (
+        <div>Service Not Found</div>
+      )}
     </Sidebar>
   );
 }

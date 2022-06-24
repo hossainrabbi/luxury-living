@@ -12,12 +12,13 @@ export default function UpdateService() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const services = useSelector((state) => state.services);
+
   const [posts, setPosts] = useState({
-    name: services?.service?.name,
-    price: services?.service?.price,
-    description: services?.service?.description,
-    image: services?.service?.image,
-    category: services?.service?.category,
+    name: services?.service.name,
+    price: services?.service.price,
+    description: services?.service.description,
+    image: services?.service.image,
+    category: services?.service.category,
   });
 
   useEffect(() => {
@@ -31,14 +32,16 @@ export default function UpdateService() {
 
   return (
     <Sidebar>
-      <div className="container-fluid mt-4">
+      {services.loading ? (
+        <div>Loading...</div>
+      ) : (
         <ServiceForm
           handleSubmit={updateHandleSubmit}
           posts={posts}
           setPosts={setPosts}
           update={true}
         />
-      </div>
+      )}
     </Sidebar>
   );
 }
