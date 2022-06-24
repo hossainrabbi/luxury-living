@@ -1,6 +1,6 @@
 const Services = require('../models/servicesModel');
 
-exports.getServices = async (req, res) => {
+exports.getServices = async (_req, res) => {
   try {
     const services = await Services.find();
 
@@ -32,6 +32,40 @@ exports.createServices = async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+exports.deleteService = async (req, res) => {
+  try {
+    await Services.findByIdAndDelete(req.params.id);
+
+    res.status(200).json({ success: true });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+exports.updateService = async (req, res) => {
+  console.log(req.body);
+  try {
+    const service = await Services.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+      useFindAndModify: false,
+    });
+
+    res.status(200).json({
+      success: true,
+      service,
+    });
+  } catch (error) {
+    res.status(500).json({
       success: false,
       message: error.message,
     });

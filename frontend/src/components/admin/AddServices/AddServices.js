@@ -1,8 +1,7 @@
 // import axios from 'axios';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import useImageUpload from '../../../hooks/useImageUpload';
 import { createService } from '../../../redux/actions/serviceAction';
 import Sidebar from '../Sidebar/Sidebar';
@@ -21,7 +20,6 @@ export default function AddServices() {
   const { imagePost } = useImageUpload();
   const dispatch = useDispatch();
   const serviceCreate = useSelector((state) => state.serviceCreate);
-  const navigate = useNavigate();
 
   const handleImageChange = async (e) => {
     try {
@@ -39,11 +37,6 @@ export default function AddServices() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createService({ ...posts, image: uploadImage }));
-    console.log(serviceCreate.service?.success);
-
-    if (!serviceCreate.service?.success) {
-      // navigate('/admin/manage-services');
-    }
   };
 
   return (

@@ -2,6 +2,9 @@ import {
   SERVICE_CREATE_FAIL,
   SERVICE_CREATE_REQUEST,
   SERVICE_CREATE_SUCCESS,
+  SERVICE_DELETE_FAIL,
+  SERVICE_DELETE_REQUEST,
+  SERVICE_DELETE_SUCCESS,
   SERVICE_FAIL,
   SERVICE_REQUEST,
   SERVICE_SUCCESS,
@@ -21,7 +24,14 @@ const initialCreateServiceState = {
 
 export const serviceReducer = (state = initialServiceState, action) => {
   switch (action.type) {
+    case SERVICE_DELETE_REQUEST:
     case SERVICE_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case SERVICE_DELETE_SUCCESS:
       return {
         ...state,
         loading: true,
@@ -34,6 +44,7 @@ export const serviceReducer = (state = initialServiceState, action) => {
         services: action.payload,
       };
 
+    case SERVICE_DELETE_FAIL:
     case SERVICE_FAIL:
       return {
         ...state,

@@ -3,6 +3,9 @@ import {
   SERVICE_CREATE_FAIL,
   SERVICE_CREATE_REQUEST,
   SERVICE_CREATE_SUCCESS,
+  SERVICE_DELETE_FAIL,
+  SERVICE_DELETE_REQUEST,
+  SERVICE_DELETE_SUCCESS,
   SERVICE_FAIL,
   SERVICE_REQUEST,
   SERVICE_SUCCESS,
@@ -32,5 +35,16 @@ export const createService = (post) => async (dispatch) => {
     dispatch({ type: SERVICE_CREATE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: SERVICE_CREATE_FAIL, payload: error });
+  }
+};
+
+export const deleteService = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: SERVICE_DELETE_REQUEST });
+
+    await axios.delete(`http://localhost:8080/api/v1/admin/service/${id}`);
+    dispatch({ type: SERVICE_DELETE_SUCCESS });
+  } catch (error) {
+    dispatch({ type: SERVICE_DELETE_FAIL, payload: error });
   }
 };
